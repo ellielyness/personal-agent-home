@@ -19,7 +19,8 @@ for (const x of flist) {
     const f = await import(fpath);
 
     // Pushes the module to an array
-    modules.push(f.default ?? Object.values);
+    const exported = f.default ?? Object.values(f);
+    modules.push(exported);
 }
 
 // Creates an object from the modules Array, formatting the keys properly to be imported
