@@ -2,11 +2,20 @@ import { tool } from '@langchain/core/tools';
 import { exec } from 'child_process';
 import { promisify } from 'util';
 import z from 'zod';
+import f from '../functions.js';
 
 const execAsync = promisify(exec);
 
 export default tool(
   async function ({ command, timeout_ms }) {
+
+    // Guardrail: ask the user to confirm before executing any shell command
+    console.log(`\n⚠️  I want to run the following shell command:\n\n  $ ${command}\n`);
+    const answer = await f.prompt(`Confirm? (yes/no): `);
+    if (!answer.trim().toLowerCase().startsWith('y')) {
+      return 'Command was cancelled by the user.';
+    }
+
     try {
       const { stdout, stderr } = await execAsync(command, {
         timeout: timeout_ms ?? 10000,
