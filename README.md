@@ -15,4 +15,5 @@ Start a new Conversation:
 
 Resume an old Conversation:
 /resume
+
 **When prompted, enter the file path of the log file, for example: ./conversations/2026/6/9/10.json
