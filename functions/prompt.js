@@ -1,6 +1,6 @@
 import * as readline from 'node:readline/promises'
 
-export default async function prompt() {
+export default async function prompt(msg) {
 
     // Defines the Interface and where the input comes from
 
@@ -11,7 +11,7 @@ export default async function prompt() {
     })
 
     // Returns the Answer, closes the interface and returns the output
-    const output = await rl.question("Prompt: \n")
+    const output = await rl.question(msg ? `${msg}` : "Prompt: \n")
     rl.close();
     return output;
 }
