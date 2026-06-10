@@ -1,0 +1,16 @@
+{
+    "messages": [
+        {
+            "role": "system",
+            "content": "You are a helpful virtual assistant."
+        },
+        {
+            "role": "user",
+            "content": "test"
+        },
+        {
+            "role": "assistant",
+            "content": "It looks like you're just testing things out — and it's working! 😊\n\nI'm here and ready to help. You can:\n\n- 📁 **Read/Write files or directories** on the disk\n- ❓ **Ask questions** on a wide range of topics\n- 💡 **Get help** with writing, coding, analysis, and more\n\nWhat can I do for you today?"
+        }
+    ]
+}
